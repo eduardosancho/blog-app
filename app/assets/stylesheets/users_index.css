@@ -1,0 +1,45 @@
+h1 {
+  color: black;
+}
+
+.users-list {
+  list-style: none;
+  margin: 0;
+  padding-inline-start: 0;
+  padding: 0 5vw;
+}
+
+.user-row {
+  display: flex;
+  padding: 1rem;
+  border-bottom: solid gray 0.2rem;
+}
+
+.avatar-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  border: solid black 0.1rem;
+  height: 100px;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.user-card {
+  flex: 3;
+  border: solid black 0.1rem;
+  display: flex;
+}
+
+.user-card > * {
+  flex: auto;
+  padding: 0 5%;
+}
+
+.user-card .posts-counter {
+  align-self: flex-end;
+}
