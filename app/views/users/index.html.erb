@@ -2,7 +2,7 @@
 <hr>
 
 <ul class='users-list'>
-  <% for a in 1..5 do %>
+  <% for posts in 1..5 do %>
     <li class='user-row'>
       <div class='avatar-container'>
         <div class='avatar'>Avatar</div>
@@ -10,6 +10,7 @@
       <div class='user-card'>
         <h2 class='user-name'>User name</h2>
         <p class='posts-counter'>Number of posts: x </p>
+        <%= link_to "See profile", user_path(posts) %>
       </div>
     </li>
   <% end %>
