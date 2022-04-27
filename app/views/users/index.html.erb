@@ -1,14 +1,15 @@
 <h1>Users Index</h1>
+<hr>
 
 <ul class='users-list'>
   <% for a in 1..5 do %>
-    <li>
-      <div class='user row'>
+    <li class='user-row'>
+      <div class='avatar-container'>
         <div class='avatar'>Avatar</div>
-        <div class='user-card'>
-          <h2>User name</h2>
-          <p>Number of posts: x </p>
-        </div>
+      </div>
+      <div class='user-card'>
+        <h2 class='user-name'>User name</h2>
+        <p class='posts-counter'>Number of posts: x </p>
       </div>
     </li>
   <% end %>
