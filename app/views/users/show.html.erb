@@ -1,1 +1,28 @@
 <h2>User Profile</h2>
+
+<div class='user-row'>
+  <div class='avatar-container'>
+    <div class='avatar'>Avatar</div>
+  </div>
+  <div class='user-card'>
+    <h2 class='user-name'>User name</h2>
+    <p class='posts-counter'>Number of posts: x </p>
+  </div>
+</div>
+
+<div class='bio-container'>
+  <h3>Bio</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi aperiam vero quaerat, recusandae neque dolorem officiis laudantium consequatur sint, 
+  unde dicta id consequuntur ut sapiente error illo aspernatur dolore minus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est et sunt animi 
+  iste perspiciatis, accusamus, repellendus nulla voluptatum, aliquid doloribus fugit. Eveniet, earum natus ab consectetur neque eius rem quod?</p>
+</div>
+
+<div class='posts-list'>
+  <% for posts in 1..3 do %>
+    <div class='post-container'>
+      <h4>Post #<%= posts %> </h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus ab eius laboriosam voluptates vel impedit, placeat quas quam dolores illum omnis 
+      assumenda optio, nemo, iure laudantium corrupti aut blanditiis velit?</p>
+    </div>
+  <% end %>
+</div>
