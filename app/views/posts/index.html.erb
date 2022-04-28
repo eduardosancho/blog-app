@@ -1,0 +1,28 @@
+<h2>Posts Index</h2>
+
+<div class='user-row'>
+  <div class='avatar-container'>
+    <div class='avatar'>Avatar</div>
+  </div>
+  <div class='user-card'>
+    <h2 class='user-name'>User name</h2>
+    <p class='posts-counter'>Number of posts: x </p>
+  </div>
+</div>
+
+<div class='posts-list-details'>
+  <% for posts in 1..2 do %>
+  <div class='post-details-container'>
+    <div class='post-container'>
+      <h4>Post #<%= posts %> </h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus ab eius laboriosam voluptates vel impedit, placeat quas quam dolores illum omnis 
+      assumenda optio, nemo, iure laudantium corrupti aut blanditiis velit?</p>
+    </div>
+    <div class='comments-container'>
+      <% for comments in 1..5 do %>
+        <span class='comment-preview'>Username: Comment <%= comments %></span>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>

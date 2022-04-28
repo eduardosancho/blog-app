@@ -1,3 +1,5 @@
+/* users#index */
+
 body {
   background-color: darkgrey;
 }
@@ -48,6 +50,8 @@ body {
   text-align: center;
 }
 
+/* users#show */
+
 .bio-container {
   border: solid black 0.1rem;
   padding: 10px;
@@ -61,6 +65,27 @@ body {
 }
 
 .post-container {
+  border: solid black 0.1rem;
+  padding: 10px;
+}
+
+/* posts#index */
+.posts-list-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+}
+
+.post-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
   border: solid black 0.1rem;
   padding: 10px;
 }
