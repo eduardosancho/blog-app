@@ -17,6 +17,7 @@
       <h4>Post #<%= posts %> </h4>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus ab eius laboriosam voluptates vel impedit, placeat quas quam dolores illum omnis 
       assumenda optio, nemo, iure laudantium corrupti aut blanditiis velit?</p>
+      <%= link_to "See post details", user_post_path(1, 1) %>
     </div>
     <div class='comments-container'>
       <% for comments in 1..5 do %>
