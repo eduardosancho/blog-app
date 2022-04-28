@@ -1,4 +1,4 @@
-<h2>User Profile</h2>
+<h2>User #<%= @user %> Profile</h2>
 
 <div class='user-row'>
   <div class='avatar-container'>
@@ -23,12 +23,12 @@
       <h4>Post #<%= posts %> </h4>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus ab eius laboriosam voluptates vel impedit, placeat quas quam dolores illum omnis 
       assumenda optio, nemo, iure laudantium corrupti aut blanditiis velit?</p>
-      <%= link_to "See post details", user_post_path(1, 1) %>
+      <%= link_to "See post details", user_post_path(@user, posts) %>
     </div>
   <% end %>
 </div>
 
 <div class='route-links'>
   <%= link_to "See all users", users_path %>
-  <%= link_to "See all posts", user_posts_path(1) %>
+  <%= link_to "See all posts", user_posts_path(@user) %>
 </div>
