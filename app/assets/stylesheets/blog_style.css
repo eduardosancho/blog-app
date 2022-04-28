@@ -89,3 +89,12 @@ body {
   border: solid black 0.1rem;
   padding: 10px;
 }
+
+  .route-links {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .route-links a {
+    margin: 0 20px 0 0;
+  }
