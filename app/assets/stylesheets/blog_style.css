@@ -1,0 +1,100 @@
+/* users#index */
+
+body {
+  background-color: darkgrey;
+}
+
+.users-list {
+  list-style: none;
+  margin: 0;
+  padding-inline-start: 0;
+  padding: 0 5vw;
+}
+
+.user-row {
+  display: flex;
+  padding: 1rem;
+  border-bottom: solid gray 0.2rem;
+}
+
+.avatar-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  border: solid black 0.1rem;
+  height: 100px;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.user-card {
+  flex: 3;
+  border: solid black 0.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.user-card > * {
+  flex: auto;
+  padding: 0 5%;
+}
+
+.user-card a {
+  width: 100%;
+  align-self: flex-end;
+  text-align: center;
+}
+
+/* users#show */
+
+.bio-container {
+  border: solid black 0.1rem;
+  padding: 10px;
+  margin: 2rem 0;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post-container {
+  border: solid black 0.1rem;
+  padding: 10px;
+}
+
+/* posts#index */
+.posts-list-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+}
+
+.post-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  border: solid black 0.1rem;
+  padding: 10px;
+}
+
+.route-links {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.route-links a {
+  margin: 0 20px 0 0;
+}
