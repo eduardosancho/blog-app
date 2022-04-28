@@ -90,11 +90,11 @@ body {
   padding: 10px;
 }
 
-  .route-links {
-    margin-top: 15px;
-    text-align: center;
-  }
-  
-  .route-links a {
-    margin: 0 20px 0 0;
-  }
+.route-links {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.route-links a {
+  margin: 0 20px 0 0;
+}
