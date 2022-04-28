@@ -5,7 +5,7 @@
     <div class='avatar'>Avatar</div>
   </div>
   <div class='user-card'>
-    <h2 class='user-name'>User name</h2>
+    <h2 class='user-name'>User #<%= @user_id %></h2>
     <p class='posts-counter'>Number of posts: x </p>
   </div>
 </div>
@@ -17,7 +17,7 @@
       <h4>Post #<%= posts %> </h4>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus ab eius laboriosam voluptates vel impedit, placeat quas quam dolores illum omnis 
       assumenda optio, nemo, iure laudantium corrupti aut blanditiis velit?</p>
-      <%= link_to "See post details", user_post_path(1, 1) %>
+      <%= link_to "See post details", user_post_path(@user_id, posts) %>
     </div>
     <div class='comments-container'>
       <% for comments in 1..5 do %>
@@ -29,5 +29,5 @@
 </div>
 
 <div class='route-links'>
-  <%= link_to "See user's profile", user_path(1) %>
+  <%= link_to "See user's profile", user_path(@user_id) %>
 </div>
