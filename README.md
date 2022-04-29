@@ -25,6 +25,7 @@
   - [Start Server](#start-server)
   - [Testing Rails](#testing-rails)
   - [Testing RSpec](#testing-rspec)
+- [How To Contribute?](#how-to-contribute)
 - [Collaborators](#collaborators)
 - [Show Your Support](#how-your-support)
 - [Acknowledgments](#acknowledgments)
@@ -64,10 +65,10 @@ cd blog-app
 
 The following technologies must be installed before hand in your local machine:
 
- - Ruby (ruby --v). Should be 2.2.2 or newer.
- - SQLite3 (sqlite3 --v)
- - Node.js (node --v)
- - Yarn (yarn --v)  
+ - Ruby (ruby --version). Should be 2.2.2 or newer.
+ - SQLite3 (sqlite3 --version)
+ - Node.js (node --version)
+ - Yarn (yarn --version)  
 
 The commands in parenthesis `()` can be used to verify if they are installed and their corresponding versions.
 
@@ -112,7 +113,7 @@ rails db:create
 ## Database Initialization
 To initialize the database we just created, now run:
 ~~~ bash
-rails db:setup
+rails db:migrate
 ~~~
 <hr>
 
@@ -142,6 +143,28 @@ Anyway, to run tests located in the spec folder run:
 ~~~ bash
 rspec
 ~~~
+<hr>
+
+## How To Contribute?
+
+Always remember to commit your contributions on a different branch. You can create a new one by running `git checkout -b <branchname>`.
+
+Visit [linters folder](.github/workflows/linters.yml) to learn how to setup linters.
+
+Then check linters locally before pushing by running:
+~~~ bash
+npx stylelint "**/*.{css,scss}"
+# ...
+# ...
+rubocop --color -A
+~~~
+
+Finally, once your changes have no linter errors and all [tests](#testing-rails) are passing, try to merge your branch into  `development` by running:
+~~~ bash
+git checkout development
+git merge <branchname>
+~~~
+Continue by solving any merge conflicts that may arise, test the functionality of the app once more, and you're changes are ready to be pushed with `git push origin <branchname>`
 <hr>
 
 # And that's pretty much it for the instructions!
