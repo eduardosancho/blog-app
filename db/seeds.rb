@@ -21,3 +21,6 @@
   Comment.create(post: first_post, author: first_user, text: 'Hi Lilly!')
   Comment.create(post: first_post, author: first_user, text: 'How are you Lilly?')
   Comment.create(post: first_post, author: first_user, text: 'Bye Lilly!')
+
+  Like.create(post: first_post, author: first_user) 
+  Like.create(post: first_post, author: second_user) 
