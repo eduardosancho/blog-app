@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
-  has_many :comments, :dependent => :destroy
-  has_many :likes, :dependent => :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   before_save :update_posts_counter
 
@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   end
 
   private
+
   def update_posts_counter
     author.increment!(:posts_counter)
   end
