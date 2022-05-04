@@ -9,6 +9,12 @@ class Post < ApplicationRecord
     comments.limit(5).order(created_at: :desc)
   end
 
+  def print_count(count)
+    return count unless count.nil?
+
+    0
+  end
+
   private
 
   def update_posts_counter
