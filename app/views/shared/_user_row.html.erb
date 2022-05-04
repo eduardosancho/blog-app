@@ -1,0 +1,10 @@
+<li class='user-row' id='<%= dom_id user %>'>
+  <div class='avatar-container'>
+    <img class='avatar' src='<%= user.photo %>' alt='User Avatar'>
+  </div>
+  <div class='user-card'>
+    <h2 class='user-name'>User <%= user.name %></h2>
+    <p class='posts-counter'>Number of posts: <%= user.posts_counter %> </p>
+    <%= link_to "See profile", user %>
+  </div>
+</li>
