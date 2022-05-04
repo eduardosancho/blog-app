@@ -3,6 +3,8 @@
 
 <ul class='users-list'>
   <% @users.each do |user| %>
-    <%= render 'shared/user_row', user: user %>
+    <li>
+      <%= render 'shared/user_row', user: user %>
+    </li>
   <% end %>
 </ul>
