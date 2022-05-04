@@ -68,7 +68,7 @@ body {
   gap: 1rem;
 }
 
-.post-container {
+.post-card {
   border: solid black 0.1rem;
   padding: 10px;
 }

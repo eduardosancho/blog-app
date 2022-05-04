@@ -9,12 +9,7 @@
 
 <div class='posts-list'>
   <% @posts.each do |post| %>
-    <div class='post-container' id='<%= dom_id post %>'>
-      <h3> <%= post.title%> </h3>
-      <h4>Post #<%= post.id %> </h4>
-      <p> <%= post.text %> </p>
-      <%= link_to "See post details", user_post_path(@user_id, post) %>
-    </div>
+    <%= render 'shared/post_card', post: post %>
   <% end %>
 </div>
 
