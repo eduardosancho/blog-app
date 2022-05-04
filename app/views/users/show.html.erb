@@ -1,20 +1,10 @@
 <h2>User Profile</h2>
 
-<div class='user-row'>
-  <div class='avatar-container'>
-    <div class='avatar'>Avatar</div>
-  </div>
-  <div class='user-card'>
-    <h2 class='user-name'>User #<%= @user %></h2>
-    <p class='posts-counter'>Number of posts: x </p>
-  </div>
-</div>
+<%= render 'shared/user_row', user: @user%>
 
 <div class='bio-container'>
   <h3>Bio</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi aperiam vero quaerat, recusandae neque dolorem officiis laudantium consequatur sint, 
-  unde dicta id consequuntur ut sapiente error illo aspernatur dolore minus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est et sunt animi 
-  iste perspiciatis, accusamus, repellendus nulla voluptatum, aliquid doloribus fugit. Eveniet, earum natus ab consectetur neque eius rem quod?</p>
+  <p> <%= @user.bio %> </p>
 </div>
 
 <div class='posts-list'>
