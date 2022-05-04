@@ -31,8 +31,14 @@ body {
   text-align: center;
 }
 
-.user-card {
+.user-row a {
   flex: 3;
+  text-decoration: none;
+  color: black;
+}
+
+.user-card {
+  height: 100%;
   border: solid black 0.1rem;
   display: flex;
   flex-wrap: wrap;
@@ -44,10 +50,8 @@ body {
   padding: 0 5%;
 }
 
-.user-card a {
-  width: 100%;
+.user-card p {
   align-self: flex-end;
-  text-align: center;
 }
 
 /* users#show */
