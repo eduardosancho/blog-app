@@ -1,10 +1,11 @@
-<div class='post-card' id='<%= dom_id post %>'>
-  <h3> <%= post.title%> </h3>
-  <h4>Post #<%= post.id %> </h4>
-  <p> <%= post.text %> </p>
-  <div class='counter-container'>
-    <p class='comments counter'>Comments: <%= post.print_count(post.comments_counter) %></p>
-    <p class='likes counter'>Likes: <%= post.print_count(post.likes_counter) %> </p>
+<%= link_to user_post_path(@user_id, post) do %>
+  <div class='post-card' id='<%= dom_id post %>'>
+    <h3> <%= post.title%> </h3>
+    <h4>Post #<%= post.id %> </h4>
+    <p> <%= post.text %> </p>
+    <div class='counter-container'>
+      <p class='comments counter'>Comments: <%= post.print_count(post.comments_counter) %></p>
+      <p class='likes counter'>Likes: <%= post.print_count(post.likes_counter) %> </p>
+    </div>
   </div>
-  <%= link_to "See post details", user_post_path(@user_id, post) %>
-</div>
+<% end %>

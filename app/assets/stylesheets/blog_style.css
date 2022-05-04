@@ -68,6 +68,11 @@ body {
   gap: 1rem;
 }
 
+.posts-list a {
+  text-decoration: none;
+  color: black;
+}
+
 .post-card {
   display: flex;
   flex-direction: column;
