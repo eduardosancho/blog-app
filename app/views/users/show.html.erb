@@ -8,12 +8,12 @@
 </div>
 
 <div class='posts-list'>
-  <% for posts in 1..3 do %>
-    <div class='post-container'>
-      <h4>Post #<%= posts %> </h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus ab eius laboriosam voluptates vel impedit, placeat quas quam dolores illum omnis 
-      assumenda optio, nemo, iure laudantium corrupti aut blanditiis velit?</p>
-      <%= link_to "See post details", user_post_path(@user, posts) %>
+  <% @posts.each do |post| %>
+    <div class='post-container' id='<%= dom_id post %>'>
+      <h3> <%= post.title%> </h3>
+      <h4>Post #<%= post.id %> </h4>
+      <p> <%= post.text %> </p>
+      <%= link_to "See post details", user_post_path(@user_id, post) %>
     </div>
   <% end %>
 </div>
