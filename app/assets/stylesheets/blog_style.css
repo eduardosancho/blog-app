@@ -1,7 +1,7 @@
 /* users#index */
 
 body {
-  background-color: darkgrey;
+  background-color: darkgrey !important;
 }
 
 .users-list {
