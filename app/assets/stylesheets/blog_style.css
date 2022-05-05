@@ -99,6 +99,11 @@ body {
   padding-top: 2rem;
 }
 
+.posts-list a {
+  text-decoration: none;
+  color: black;
+}
+
 .post-details-container {
   display: flex;
   flex-direction: column;
