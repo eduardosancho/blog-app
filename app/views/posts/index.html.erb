@@ -13,11 +13,11 @@
           <em><%= comment.created_at %></em>
         </p>
       <% end %>
-      <%= has_comments?(post) %>
+      <%= comments?(post) %>
     </div>
   </div>
   <% end %>
-  <%= has_posts?(@user)%>
+  <%= posts?(@user)%>
 </div>
 
 <div class='route-links'>

@@ -1,9 +1,7 @@
 module UsersHelper
-  def has_posts?(user)
+  def posts?(user)
     out = ''
-    if user.posts.length < 1
-      out << '<p>This user has no posts</p>'
-    end
+    out << '<p>This user has no posts</p>' if user.posts.empty?
     out.html_safe
   end
 end
