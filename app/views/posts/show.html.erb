@@ -2,9 +2,15 @@
 
 <div class='post-details-container'>
   <div class='post-container'>
-    <h3>Post #<%= @post_id %> by <%= @user.name %> </h3>
-    <h4>Title: <%= @post.title %></h4>
-    <p>Text: <%= @post.text %></p>
+    <div class='post-header'>
+      <h3>Post #<%= @post_id %> by <%= @user.name %> </h3>
+      <h4>Title: <%= @post.title %></h4>
+      <p>Text: <%= @post.text %></p>
+    </div>
+    <div class='counter-container'>
+      <p class='comments counter'>Comments: <%= @post.print_count(@post.comments_counter) %></p>
+      <p class='likes counter'>Likes: <%= @post.print_count(@post.likes_counter) %> </p>
+    </div>
   </div>
   <div class='comments-container'>
     <% @post.comments.each do |comment| %>

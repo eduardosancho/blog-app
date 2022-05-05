@@ -92,6 +92,7 @@ body {
 }
 
 /* posts#index */
+
 .posts-list {
   display: flex;
   flex-direction: column;
@@ -114,7 +115,7 @@ body {
   display: flex;
   flex-direction: column;
   border: solid black 0.1rem;
-  padding: 10px;
+  padding: 0 15px;
 }
 
 .comments-container h3 {
@@ -136,4 +137,20 @@ body {
 
 .route-links a {
   margin: 0 20px 0 0;
+}
+
+/* posts#show */
+
+.post-container {
+  border: solid black 0.1rem;
+  padding: 0 15px;
+}
+
+.post-header {
+  float: left;
+  width: 75%;
+}
+
+.post-container .counter-container {
+  clear: none;
 }
