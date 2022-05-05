@@ -1,1 +1,10 @@
-<h1>Comment form</h1>
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: "#{name} generic-alert" %>
+<% end -%>
+
+<h1>Create New Comment</h1>
+
+<%= form_with model: comment, url: user_post_comments_path(author, post), method: :post, local: true, scope: :comment, html: { class: 'comment-form-new' } do |form| %>
+  <%= form.text_area :text %>
+  <%= form.submit "Add Comment" %>
+<% end %>
