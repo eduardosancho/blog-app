@@ -15,6 +15,7 @@
           <em><%= comment.created_at %></em>
         </p>
       <% end %>
+      <% if post.comments_counter.nil? %> <p>This post has no comments</p> <% end %>
     </div>
   </div>
   <% end %>
