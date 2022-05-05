@@ -117,6 +117,18 @@ body {
   padding: 10px;
 }
 
+.comments-container h3 {
+  margin: 15px 0;
+}
+
+.comments-container em {
+  font-size: 0.8rem;
+}
+
+.comment-preview {
+  margin: 10px 0;
+}
+
 .route-links {
   margin-top: 15px;
   text-align: center;

@@ -7,8 +7,13 @@
   <div class='post-details-container'>
     <%= render 'shared/post_card', post: post %> 
     <div class='comments-container'>
-      <% for comments in 1..5 do %>
-        <span class='comment-preview'>Username: Comment <%= comments %></span>
+      <h3>Comments</h3>
+      <% post.recent_comments.each do |comment| %>
+        <p class='comment-preview'> 
+          <strong><%= comment.author.name %>:</strong> 
+          <%= comment.text %>
+          <em><%= comment.created_at %></em>
+        </p>
       <% end %>
     </div>
   </div>
