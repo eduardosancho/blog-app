@@ -4,7 +4,7 @@
 
 <div class='posts-list'>
   <% @posts.each do |post| %>
-  <div class='post-details-container'>
+  <div class='post-summary-container'>
     <%= render 'shared/post_card', post: post %> 
     <div class='comments-container'>
       <h3>Comments</h3>
