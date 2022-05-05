@@ -1,5 +1,3 @@
-<h2>Posts Index</h2>
-
 <%= render 'shared/user_row', user: @user%>
 
 <div class='posts-list'>
@@ -15,10 +13,11 @@
           <em><%= comment.created_at %></em>
         </p>
       <% end %>
-      <% if post.comments_counter.nil? %> <p>This post has no comments</p> <% end %>
+      <%= comments?(post) %>
     </div>
   </div>
   <% end %>
+  <%= posts?(@user)%>
 </div>
 
 <div class='route-links'>

@@ -1,5 +1,3 @@
-<h2>Post Details</h2>
-
 <div class='post-details-section'>
   <div class='post-container'>
     <div class='post-details'>
@@ -8,8 +6,8 @@
       <p>Text: <%= @post.text %></p>
     </div>
     <div class='counter-container'>
-      <p class='comments counter'>Comments: <%= @post.print_count(@post.comments_counter) %></p>
-      <p class='likes counter'>Likes: <%= @post.print_count(@post.likes_counter) %> </p>
+      <p class='comments counter'>Comments: <%= print_count(@post.comments_counter) %></p>
+      <p class='likes counter'>Likes: <%= print_count(@post.likes_counter) %> </p>
     </div>
   </div>
   <div class='comments-container'>
@@ -20,7 +18,7 @@
           <em><%= comment.created_at %></em>
         </p>
       <% end %>
-      <% if @post.comments_counter.nil? %> <p>This post has no comments</p> <% end %>
+      <%= comments?(@post) %>
   </div>
 </div>
 

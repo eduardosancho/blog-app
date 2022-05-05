@@ -1,5 +1,3 @@
-<h2>User Profile</h2>
-
 <%= render 'shared/user_row', user: @user%>
 
 <div class='bio-container'>
@@ -11,6 +9,7 @@
   <% @posts.each do |post| %>
     <%= render 'shared/post_card', post: post %>
   <% end %>
+  <%= posts?(@user) %>
 </div>
 
 <div class='route-links'>
