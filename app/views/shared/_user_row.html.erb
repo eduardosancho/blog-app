@@ -1,0 +1,11 @@
+<div class='user-row' id='<%= dom_id user %>'>
+  <div class='avatar-container'>
+    <img class='avatar' src='<%= user.photo %>' alt='User Avatar'>
+  </div>
+  <%= link_to user do %>
+    <div class='user-card'>
+      <h2 class='user-name'>User <%= user.name %></h2>
+      <p class='posts-counter'>Number of posts: <%= user.print_count(user.posts_counter) %> </p>
+    </div>
+  <% end %>
+</div>

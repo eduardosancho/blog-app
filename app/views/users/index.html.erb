@@ -2,16 +2,9 @@
 <hr>
 
 <ul class='users-list'>
-  <% for users in 1..5 do %>
-    <li class='user-row'>
-      <div class='avatar-container'>
-        <div class='avatar'>Avatar</div>
-      </div>
-      <div class='user-card'>
-        <h2 class='user-name'>User #<%= users %></h2>
-        <p class='posts-counter'>Number of posts: x </p>
-        <%= link_to "See profile", user_path(users) %>
-      </div>
+  <% @users.each do |user| %>
+    <li>
+      <%= render 'shared/user_row', user: user %>
     </li>
   <% end %>
 </ul>
