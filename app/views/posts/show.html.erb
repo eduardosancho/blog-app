@@ -2,21 +2,19 @@
 
 <div class='post-details-container'>
   <div class='post-container'>
-    <h4>Post #<%= @post_id %> by User #<%= @user_id %> </h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus ab eius laboriosam voluptates vel impedit, placeat quas quam dolores illum omnis 
-    assumenda optio, nemo, iure laudantium corrupti aut blanditiis velit? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, incidunt 
-    cum aliquam pariatur facilis ea saepe possimus animi culpa amet optio voluptatem quis officia mollitia reiciendis laborum quidem cupiditate nulla! 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quae culpa ipsum! Temporibus necessitatibus ullam enim harum perferendis itaque 
-    non accusamus eum laborum sequi numquam, ad sed possimus. Iure, nobis?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, consequuntur tempore. Qui exercitationem, iure in doloribus numquam earum 
-    cupiditate iusto, modi vitae tempora harum mollitia, voluptatem perspiciatis molestiae praesentium dolor. Lorem ipsum dolor sit amet, consectetur 
-    adipisicing elit. Perferendis, iure. Consequuntur quasi iure inventore laudantium tempora? Et, quis autem incidunt repellendus esse voluptatem 
-    commodi qui libero, odit enim, quod sint?</p>
+    <h3>Post #<%= @post_id %> by <%= @user.name %> </h3>
+    <h4>Title: <%= @post.title %></h4>
+    <p>Text: <%= @post.text %></p>
   </div>
   <div class='comments-container'>
-    <% for comments in 1..10 do %>
-      <span class='comment-preview'>Username: Comment <%= comments %></span>
-    <% end %>
+    <% @post.comments.each do |comment| %>
+        <p class='comment-preview'> 
+          <strong><%= comment.author.name %>:</strong> 
+          <%= comment.text %>
+          <em><%= comment.created_at %></em>
+        </p>
+      <% end %>
+      <% if @post.comments_counter.nil? %> <p>This post has no comments</p> <% end %>
   </div>
 </div>
 
