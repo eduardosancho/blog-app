@@ -46,7 +46,7 @@ body {
 }
 
 .user-card > * {
-  flex: auto;
+  flex: 1;
   padding: 0 5%;
 }
 
