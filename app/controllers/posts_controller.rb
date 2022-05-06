@@ -13,4 +13,29 @@ class PostsController < ApplicationController
     @post_id = params[:id]
     @post = Post.find(@post_id)
   end
+
+  def new
+    @user_id = current_user.id
+    @page_title = 'Create New Post'
+    post = Post.new
+    respond_to do |format|
+      format.html { render :new, locals: { post: post } }
+    end
+  end
+
+  def create
+    post = Post.new(params.require(:post).permit(:title, :text))
+    post.author_id = current_user.id
+    respond_to do |format|
+      format.html do
+        if post.save
+          redirect_to user_posts_url(current_user)
+          flash[:success] = 'Post saved succesfully'
+        else
+          flash[:error] = 'Error: Post could not be saved'
+          redirect_to new_user_post_url(current_user)
+        end
+      end
+    end
+  end
 end

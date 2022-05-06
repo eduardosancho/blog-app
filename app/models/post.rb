@@ -9,6 +9,14 @@ class Post < ApplicationRecord
     comments.limit(5).order(created_at: :desc)
   end
 
+  def liked?(user)
+    @likes = Post.find(id).likes
+    @likes.select { |like| like.author_id == user.id }
+    return true unless @likes.length.zero?
+
+    false
+  end
+
   private
 
   def update_posts_counter
