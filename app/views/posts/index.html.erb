@@ -2,10 +2,10 @@
   <%= content_tag :div, msg, class: "#{name} generic-alert" %>
  <% end -%>
 
-<%= render 'shared/user_row', user: @user%>
+<%= render 'shared/user_row', user: @author%>
 
 <div class='posts-list'>
-  <% @user.posts.each do |post| %>
+  <% @author.posts.each do |post| %>
   <div class='post-summary-container'>
     <%= render 'shared/post_card', post: post %> 
     <div class='comments-container'>
@@ -21,9 +21,9 @@
     </div>
   </div>
   <% end %>
-  <%= posts?(@user)%>
+  <%= posts?(@author)%>
 </div>
 
 <div class='route-links'>
-  <%= link_to "See user's profile", user_path(@user_id) %>
+  <%= link_to "See user's profile", user_path(@author) %>
 </div>
