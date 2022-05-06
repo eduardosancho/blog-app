@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def index
     @page_title = 'Posts Index'
     author_id = params[:user_id]
-    @author = User.includes(:posts, posts: [:comments, { comments: [:author] } ]).find(author_id)
+    @author = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(author_id)
   end
 
   def show
