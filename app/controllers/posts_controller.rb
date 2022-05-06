@@ -24,11 +24,13 @@ class PostsController < ApplicationController
   def create
     post = Post.new(params.require(:post).permit(:title, :text))
     post.author_id = current_user.id
+    post.comments_counter = 0
+    post.likes_counter = 0
     respond_to do |format|
       format.html do
         if post.save
-          redirect_to user_posts_url(current_user)
           flash[:success] = 'Post saved succesfully'
+          redirect_to user_posts_url(current_user)
         else
           flash[:error] = 'Error: Post could not be saved'
           redirect_to new_user_post_url(current_user)
