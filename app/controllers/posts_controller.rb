@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @page_title = 'Post Details'
     post_id = params[:id]
     @post = Post.includes(:comments, comments: [:author]).find(post_id)
+    @author = @post.author
   end
 
   def new
