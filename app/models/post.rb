@@ -5,6 +5,10 @@ class Post < ApplicationRecord
 
   after_save :update_posts_counter
 
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   def recent_comments
     comments.limit(5).order(created_at: :desc)
   end
@@ -15,6 +19,12 @@ class Post < ApplicationRecord
     return true unless @likes.length.zero?
 
     false
+  end
+
+  def reduced_text
+    return text if text.length < 200
+
+    "#{text[0, 200]}..."
   end
 
   private
