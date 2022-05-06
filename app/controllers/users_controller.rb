@@ -7,6 +7,6 @@ class UsersController < ApplicationController
   def show
     @page_title = 'User Profile'
     @user_id = params[:id]
-    @user = User.find(@user_id)
+    @user = User.includes(:posts).find(@user_id)
   end
 end
