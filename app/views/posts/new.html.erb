@@ -1,7 +1,3 @@
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: "#{name} generic-alert" %>
-<% end -%>
-
 <%= form_with model: post, url: user_posts_path(current_user), method: :post, local: true, scope: :post, html: { class: 'post-form-new' } do |form| %>
   <%= form.text_field :title, placeholder: 'Enter title...'%>
   <%= form.text_area :text, placeholder: 'Enter text...' %>

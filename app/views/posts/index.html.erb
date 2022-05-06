@@ -1,7 +1,3 @@
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: "#{name} generic-alert" %>
- <% end -%>
-
 <%= render 'shared/user_row', user: @author%>
 
 <div class='posts-list'>
