@@ -5,7 +5,7 @@
 <%= render 'shared/user_row', user: @user%>
 
 <div class='posts-list'>
-  <% @posts.each do |post| %>
+  <% @user.posts.each do |post| %>
   <div class='post-summary-container'>
     <%= render 'shared/post_card', post: post %> 
     <div class='comments-container'>
