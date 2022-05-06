@@ -13,7 +13,9 @@
       <p class='comments counter'>Comments: <%= print_count(@post.comments_counter) %></p>
       <p class='likes counter'>Likes: <%= print_count(@post.likes_counter) %> </p>
     </div>
-    <%= link_to 'Comment', new_user_post_comment_path(@post.author, @post) %>
+    <div class='social-interactions-container'>
+      <%= link_to 'Comment', new_user_post_comment_path(@post.author, @post) %>
+    </div>
   </div>
   <div class='comments-container'>
     <% @post.comments.each do |comment| %>

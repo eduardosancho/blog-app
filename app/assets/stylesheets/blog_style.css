@@ -91,6 +91,10 @@ body {
   gap: 10px;
 }
 
+.social-interactions-container {
+  font-weight: bold;
+}
+
 /* posts#index */
 
 .posts-list {
@@ -158,5 +162,11 @@ body {
 }
 
 .post-container .counter-container {
+  float: right;
   clear: none;
+}
+
+.post-container .social-interactions-container {
+  float: right;
+  width: 50%;
 }
