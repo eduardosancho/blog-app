@@ -8,6 +8,5 @@ class UsersController < ApplicationController
     @page_title = 'User Profile'
     @user_id = params[:id]
     @user = User.find(@user_id)
-    @posts = @user.recent_posts
   end
 end

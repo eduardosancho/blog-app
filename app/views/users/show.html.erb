@@ -6,7 +6,7 @@
 </div>
 
 <div class='recent-posts'>
-  <% @posts.each do |post| %>
+  <% @user.recent_posts.each do |post| %>
     <%= render 'shared/post_card', post: post %>
   <% end %>
   <%= posts?(@user) %>
