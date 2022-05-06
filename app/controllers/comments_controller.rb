@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     post_id = params[:post_id]
     post = Post.find(post_id)
     respond_to do |format|
-      format.html { render :new, locals: { comment: comment, author: author, post: post }}
+      format.html { render :new, locals: { comment: comment, author: author, post: post } }
     end
   end
 
