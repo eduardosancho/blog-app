@@ -208,3 +208,8 @@ textarea {
   width: 50%;
   height: 150px;
 }
+
+input[type=submit]:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
