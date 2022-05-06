@@ -3,7 +3,11 @@ class LikesController < ApplicationController
     @user = User.find(params[:user_id])
     @post = Post.find(params[:post_id])
 
-    return if @post.liked?(current_user)
+    if @post.liked?(current_user)
+      flash[:error] = 'Error: You already liked this post'
+      redirect_to user_post_url(@user, @post)
+      return
+    end
 
     @like = Like.new
     @like.author_id = current_user.id
@@ -13,8 +17,6 @@ class LikesController < ApplicationController
         if @like.save
           redirect_to user_post_url(@user, @post)
           flash[:success] = 'Like saved succesfully'
-        else
-          flash[:error] = 'Error: Like could not be saved'
         end
       end
     end
