@@ -1,3 +1,7 @@
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: "#{name} generic-alert" %>
+<% end -%>
+
 <div class='post-details-section'>
   <div class='post-container'>
     <div class='post-details'>
@@ -9,6 +13,7 @@
       <p class='comments counter'>Comments: <%= print_count(@post.comments_counter) %></p>
       <p class='likes counter'>Likes: <%= print_count(@post.likes_counter) %> </p>
     </div>
+    <%= link_to 'Comment', new_user_post_comment_path(@post.author, @post) %>
   </div>
   <div class='comments-container'>
     <% @post.comments.each do |comment| %>
@@ -22,12 +27,6 @@
   </div>
 </div>
 
-<div>
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: "#{name} generic-alert" %>
-<% end -%>
-</div>
-
 <div class='route-links'>
-  <%= link_to "Go back", :back %>
+  <%= link_to "See all posts", user_posts_path(@user) %>
 </div>
