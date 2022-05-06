@@ -9,6 +9,9 @@
     </div>
     <div class='social-interactions-container'>
       <%= link_to 'Comment', new_user_post_comment_path(post.author, post) %>
+      <%= form_with model: @like, url: user_post_likes_path(post.author, post), method: :post, local: false, scope: :like, html: { class: 'like-form-new' } do |form| %>
+        <%= form.submit "Like" %>
+      <% end %>
     </div>
   </div>
 <% end %>
