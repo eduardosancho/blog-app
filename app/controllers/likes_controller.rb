@@ -15,8 +15,8 @@ class LikesController < ApplicationController
     respond_to do |format|
       format.html do
         if @like.save
-          redirect_to user_post_url(@user, @post)
           flash[:success] = 'Like saved succesfully'
+          redirect_to user_post_url(@user, @post)
         end
       end
     end
