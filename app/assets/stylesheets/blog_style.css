@@ -184,3 +184,31 @@ body {
   justify-content: flex-end;
   gap: 10px;
 }
+
+/* posts#new */
+
+.post-form-new {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.post-form-new input:last-child {
+  width: 10%;
+}
+
+
+/* comments#new  */
+
+.comment-form-new {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 50%;
+  height: 150px;
+}
