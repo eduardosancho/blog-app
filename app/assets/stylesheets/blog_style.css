@@ -172,16 +172,9 @@ body {
   width: 75%;
 }
 
-.post-container .counter-container {
-  float: right;
-  clear: none;
-}
-
 .post-container .social-interactions-container {
-  float: right;
-  width: 50%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 10px;
 }
 
