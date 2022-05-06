@@ -3,8 +3,8 @@
 <% end -%>
 
 <%= form_with model: post, url: user_posts_path(current_user), method: :post, local: true, scope: :post, html: { class: 'post-form-new' } do |form| %>
-  <%= form.text_field :title %>
-  <%= form.text_field :text %>
+  <%= form.text_field :title, placeholder: 'Enter title...'%>
+  <%= form.text_area :text, placeholder: 'Enter text...' %>
   <%= form.submit "Add Post" %>
 <% end %>
 
