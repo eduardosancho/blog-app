@@ -12,19 +12,19 @@ class CommentsController < ApplicationController
   end
 
   def create
-    owner = User.find(params[:user_id])
-    post = Post.find(params[:post_id])
-    comment = Comment.new(params.require(:comment).permit(:text))
-    comment.author_id = current_user.id
-    comment.post_id = params[:post_id]
+    @owner = User.find(params[:user_id])
+    @post = Post.find(params[:post_id])
+    @comment = Comment.new(params.require(:comment).permit(:text))
+    @comment.author_id = current_user.id
+    @comment.post_id = params[:post_id]
     respond_to do |format|
       format.html do
-        if comment.save
-          redirect_to user_post_url(owner, post)
+        if @comment.save
+          redirect_to user_post_url(@owner, @post)
           flash[:success] = 'Comment saved succesfully'
         else
           flash[:error] = 'Error: Comment could not be saved'
-          redirect_to new_user_post_comment_url(owner, post)
+          redirect_to new_user_post_comment_url(@owner, @post)
         end
       end
     end
