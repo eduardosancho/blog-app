@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @user_id = current_user.id
     @page_title = 'Create New Post'
     post = Post.new
     respond_to do |format|
