@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   def index
     @page_title = 'Posts Index'
-    user_id = params[:user_id]
-    @user = User.includes(:posts, posts: [:comments, { comments: [:author] } ]).find(user_id)
+    author_id = params[:user_id]
+    @author = User.includes(:posts, posts: [:comments, { comments: [:author] } ]).find(author_id)
   end
 
   def show
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @user = current_user
+    @author = current_user
     @page_title = 'Create New Post'
     post = Post.new
     respond_to do |format|
