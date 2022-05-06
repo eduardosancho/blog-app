@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   end
 
   def liked?(user)
-    @likes = Like.all
+    @likes = Post.find(id).likes
     @likes.select { |like| like.author_id == user.id }
     return true unless @likes.length.zero?
 
