@@ -1,13 +1,15 @@
 class CommentsController < ApplicationController
+  layout 'posts'
+
   def new
     @page_title = 'Create New Comment'
     comment = Comment.new
     author_id = params[:user_id]
-    author = User.find(author_id)
+    @author = User.find(author_id)
     post_id = params[:post_id]
     post = Post.find(post_id)
     respond_to do |format|
-      format.html { render :new, locals: { comment: comment, author: author, post: post } }
+      format.html { render :new, locals: { comment: comment, author: @author, post: post } }
     end
   end
 
@@ -20,8 +22,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html do
         if @comment.save
-          redirect_to user_post_url(@owner, @post)
           flash[:success] = 'Comment saved succesfully'
+          redirect_to user_post_url(@owner, @post)
         else
           flash[:error] = 'Error: Comment could not be saved'
           redirect_to new_user_post_comment_url(@owner, @post)
