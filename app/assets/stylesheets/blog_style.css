@@ -92,7 +92,18 @@ body {
 }
 
 .social-interactions-container {
-  font-weight: bold;
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  font-size: 14px;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 3px 6px;
+  border: solid 0.7px gray;
+  border-radius: 5px;
 }
 
 /* posts#index */
@@ -169,4 +180,7 @@ body {
 .post-container .social-interactions-container {
   float: right;
   width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
