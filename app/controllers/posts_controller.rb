@@ -1,21 +1,19 @@
 class PostsController < ApplicationController
   def index
     @page_title = 'Posts Index'
-    @user_id = params[:user_id]
-    @user = User.find(@user_id)
-    @posts = @user.posts
+    author_id = params[:user_id]
+    @author = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(author_id)
   end
 
   def show
     @page_title = 'Post Details'
-    @user_id = params[:user_id]
-    @user = User.find(@user_id)
-    @post_id = params[:id]
-    @post = Post.find(@post_id)
+    post_id = params[:id]
+    @post = Post.includes(:comments, comments: [:author]).find(post_id)
+    @author = @post.author
   end
 
   def new
-    @user_id = current_user.id
+    @author = current_user
     @page_title = 'Create New Post'
     post = Post.new
     respond_to do |format|
@@ -26,11 +24,13 @@ class PostsController < ApplicationController
   def create
     post = Post.new(params.require(:post).permit(:title, :text))
     post.author_id = current_user.id
+    post.comments_counter = 0
+    post.likes_counter = 0
     respond_to do |format|
       format.html do
         if post.save
-          redirect_to user_posts_url(current_user)
           flash[:success] = 'Post saved succesfully'
+          redirect_to user_posts_url(current_user)
         else
           flash[:error] = 'Error: Post could not be saved'
           redirect_to new_user_post_url(current_user)

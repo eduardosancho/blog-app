@@ -1,11 +1,7 @@
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: "#{name} generic-alert" %>
-<% end -%>
-
 <div class='post-details-section'>
   <div class='post-container'>
     <div class='post-details'>
-      <h3>Post #<%= @post_id %> by <%= @user.name %> </h3>
+      <h3>Post #<%= @post_id %> by <%= @post.author.name %> </h3>
       <h4>Title: <%= @post.title %></h4>
       <p>Text: <%= @post.text %></p>
     </div>
@@ -33,5 +29,5 @@
 </div>
 
 <div class='route-links'>
-  <%= link_to "See all posts", user_posts_path(@user) %>
+  <%= link_to "See all posts", user_posts_path(@post.author) %>
 </div>

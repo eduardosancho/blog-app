@@ -113,7 +113,13 @@ rails db:create
 ## Database Initialization
 To initialize the database we just created, now run:
 ~~~ bash
-rails db:migrate
+rails db:schema:load
+~~~
+
+## Database Populate Default
+To populate the database with some minimal info run:
+~~~ bash
+rails db:seed
 ~~~
 <hr>
 

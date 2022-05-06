@@ -25,13 +25,16 @@
           <%= link_to "Home", root_path %>
         </li>
         <li class="nav-item mx-4">
-          <%= link_to "Author", user_path(@user_id) %>
+          <%= link_to "Author", user_path(@author) %>
         </li>
       </ul>
     </div>
   </nav>
   <h1><%= @page_title %></h1>
   <hr>
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: "#{name} generic-alert" %>
+  <% end -%>
     <%= yield %>
   </body>
 </html>
