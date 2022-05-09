@@ -7,6 +7,8 @@ gem 'rubocop', '~> 1.28', '>= 1.28.2'
 
 gem 'rails-controller-testing'
 
+gem 'devise'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 
