@@ -1,6 +1,6 @@
 <div class='user-row' id='<%= dom_id user %>'>
   <div class='avatar-container'>
-    <img class='avatar' src='<%= user.photo %>' alt='User Avatar'>
+    <img class='avatar' src='<%= user.photo || 'https://picsum.photos/100' %>' alt='User Avatar'>
   </div>
   <%= link_to user do %>
     <div class='user-card'>
