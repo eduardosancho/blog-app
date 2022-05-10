@@ -4,7 +4,7 @@
   </div>
   <%= link_to user do %>
     <div class='user-card'>
-      <h2 class='user-name'>Hi <%= user.name || 'User' %></h2>
+      <h2 class='user-name'><%= user.name || 'User' %></h2>
       <p class='posts-counter'>Number of posts: <%= print_count(user.posts_counter) %> </p>
     </div>
   <% end %>
