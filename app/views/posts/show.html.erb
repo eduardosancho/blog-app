@@ -18,11 +18,15 @@
   </div>
   <div class='comments-container'>
     <% @post.comments.each do |comment| %>
-        <p class='comment-preview'> 
+        <p class='comment-preview '> 
           <strong><%= comment.author.name %>:</strong> 
           <%= comment.text %>
           <em><%= comment.created_at %></em>
         </p>
+        <%= button_to "Delete Comment", user_post_comments_path(comment.post.author_id, comment.post_id, comment.id), 
+            class:"btn btn-outline-danger float-right m-2 mr-5", 
+            method: :delete 
+        %>
       <% end %>
       <%= comments?(@post) %>
   </div>
