@@ -5,10 +5,11 @@
       <h4>Title: <%= @post.title %></h4>
       <p>Text: <%= @post.text %></p>
 
-      <div class="mb-2">
-        <%= button_to "Delete Post", user_post_path(@post.author_id, @post), method: :delete, class: 'btn btn-outline-danger'%>
-      </div>
-      
+      <% if can? :destroy, Post %>
+        <div class="mb-2">
+          <%= button_to "Delete Post", user_post_path(@post.author_id, @post), method: :delete, class: 'btn btn-outline-danger'%>
+        </div>
+      <% end %>
     </div>
     <div class='counter-container'>
       <p class='comments counter'>Comments: <%= print_count(@post.comments_counter) %></p>

@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @page_title = 'Posts Index'
     author_id = params[:user_id]
