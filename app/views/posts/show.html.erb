@@ -1,9 +1,14 @@
-<div class='post-details-section'>
+<div class='post-details-section container'>
   <div class='post-container'>
     <div class='post-details'>
       <h3>Post #<%= @post_id %> by <%= @post.author.name %> </h3>
       <h4>Title: <%= @post.title %></h4>
       <p>Text: <%= @post.text %></p>
+
+      <div class="mb-2">
+        <%= button_to "Delete Post", user_post_path(@post.author_id, @post), method: :delete, class: 'btn btn-outline-danger'%>
+      </div>
+      
     </div>
     <div class='counter-container'>
       <p class='comments counter'>Comments: <%= print_count(@post.comments_counter) %></p>
@@ -27,6 +32,7 @@
             class:"btn btn-outline-danger float-right m-2 mr-5", 
             method: :delete 
         %>
+        <hr class="w-100">
       <% end %>
       <%= comments?(@post) %>
   </div>
