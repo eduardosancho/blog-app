@@ -29,10 +29,12 @@
           <%= comment.text %>
           <em><%= comment.created_at %></em>
         </p>
-        <%= button_to "Delete Comment", user_post_comments_path(comment.post.author_id, comment.post_id, comment.id), 
+      <% if can? :destroy, comment %>
+        <%= button_to "Delete Comment", user_post_comment_path(comment.post.author_id, comment.post_id, comment.id), 
             class:"btn btn-outline-danger float-right m-2 mr-5", 
             method: :delete 
         %>
+      <% end %>
         <hr class="w-100">
       <% end %>
       <%= comments?(@post) %>
