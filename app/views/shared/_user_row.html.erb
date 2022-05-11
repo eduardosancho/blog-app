@@ -1,10 +1,10 @@
 <div class='user-row' id='<%= dom_id user %>'>
   <div class='avatar-container'>
-    <img class='avatar' src='<%= user.photo %>' alt='User Avatar'>
+    <img class='avatar' src='<%= user.photo || 'https://picsum.photos/100' %>' alt='User Avatar'>
   </div>
   <%= link_to user do %>
     <div class='user-card'>
-      <h2 class='user-name'>User <%= user.name %></h2>
+      <h2 class='user-name'><%= user.name || 'User' %></h2>
       <p class='posts-counter'>Number of posts: <%= print_count(user.posts_counter) %> </p>
     </div>
   <% end %>
