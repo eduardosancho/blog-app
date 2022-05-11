@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource
-
   def index
     @page_title = 'Posts Index'
     author_id = params[:user_id]
@@ -26,8 +24,6 @@ class PostsController < ApplicationController
   def create
     post = Post.new(params.require(:post).permit(:title, :text))
     post.author_id = current_user.id
-    post.comments_counter = 0
-    post.likes_counter = 0
     respond_to do |format|
       format.html do
         if post.save
