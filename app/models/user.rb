@@ -14,4 +14,8 @@ class User < ApplicationRecord
     user = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(id)
     user.posts.limit(3).order(created_at: :desc)
   end
+
+  def admin?
+    role == 'admin'
+  end
 end

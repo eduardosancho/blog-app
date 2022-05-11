@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @page_title = 'Posts Index'
     author_id = params[:user_id]
@@ -6,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    authorize! :read, @post
     @page_title = 'Post Details'
     post_id = params[:id]
     @post = Post.includes(:comments, comments: [:author]).find(post_id)
@@ -22,10 +25,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(params.require(:post).permit(:title, :text))
+    post = Post.new(post_params)
     post.author_id = current_user.id
-    post.comments_counter = 0
-    post.likes_counter = 0
     respond_to do |format|
       format.html do
         if post.save
@@ -37,5 +38,20 @@ class PostsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    authorize! :manage, post
+    post.destroy
+
+    flash[:success] = 'Post has been deleted successfully'
+    redirect_to user_posts_path(post.author.id)
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end

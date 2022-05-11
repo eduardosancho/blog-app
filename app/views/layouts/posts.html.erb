@@ -34,10 +34,15 @@
     </div>
   </nav>
   <h1><%= @page_title %></h1>
+  <% if user_signed_in? %>
+    Logged in as <strong><%= current_user.email %></strong>.
+  <% end %>
   <hr>
+  
   <% flash.each do |name, msg| -%>
     <%= content_tag :div, msg, class: "#{name} generic-alert" %>
   <% end -%>
+
     <%= yield %>
   </body>
 </html>
