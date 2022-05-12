@@ -9,6 +9,8 @@ gem 'rails-controller-testing'
 
 gem 'devise'
 
+gem 'database_cleaner'
+
 gem 'cancancan'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
