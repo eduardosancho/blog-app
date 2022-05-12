@@ -9,10 +9,12 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :api do
+    namespace :v1 do
+      resources :users
+    end
+  end
 
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :new, :create, :show, :destroy] do
