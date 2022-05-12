@@ -12,6 +12,9 @@
         <%= form.submit "Like" %>
       <% end %>
       <%= link_to 'Comment', new_user_post_comment_path(post.author, post), class: 'button' %>
+      <% if can? :destroy, post %>
+        <%= button_to "Delete Post", user_post_path(post.author_id, post), method: :delete, class: 'btn btn-outline-danger'%>
+      <% end %>
     </div>
   </div>
 <% end %>
