@@ -1,10 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'User Show', type: :system do
-  describe 'user show page' do
+RSpec.describe 'User', type: :system do
+  describe 'show page' do
     before(:each) do
       @user = User.create! name: 'eduardo', email: 'edu@gmail.com', password: '123456', confirmed_at: Time.now
-      # @user_two = User.create! name: 'carlos', email: 'carlos@gmail.com', password: '123456', confirmed_at: Time.now
 
       @first_post = Post.create! author_id: @user.id, title: 'first_post', text: 'Hello 1'
       @second_post = Post.create! author_id: @user.id, title: 'second_post', text: 'Hello 2'
@@ -14,7 +13,7 @@ RSpec.describe 'User Show', type: :system do
       page.fill_in 'Email', with: 'edu@gmail.com'
       page.fill_in 'Password', with: '123456'
       click_button 'Log in'
-      first('.btn-outline-secondary').click
+      click_on(@user.name)
     end
 
     it 'I can see the user\'s profile picture.' do
@@ -41,17 +40,17 @@ RSpec.describe 'User Show', type: :system do
     end
 
     it 'I can see a button that lets me view all of a user\'s posts.' do
-      expect(page).to have_content 'See All Posts'
+      expect(page).to have_content 'See all posts'
     end
 
     it 'When I click a user\'s post, it redirects me to that post\'s show page.' do
-      click_on('See All Posts')
+      click_on('See all posts')
       click_on('first_post')
       expect(page).to have_current_path user_post_path(@user, @first_post)
     end
 
     it 'When I click to see all posts, it redirects me to the user\'s post\'s index page.' do
-      click_on('See All Posts')
+      click_on('See all posts')
       expect(page).to have_current_path user_posts_path(@user)
     end
   end
