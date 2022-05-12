@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Login', type: :system do
-  describe 'users index page' do
+RSpec.describe 'Users', type: :system do
+  describe 'index page' do
     before(:each) do
       @user = User.create! name: 'eduardo', email: 'edu@gmail.com', password: '123456', confirmed_at: Time.now
       @user_two = User.create! name: 'carlos', email: 'carlos@gmail.com', password: '123456', confirmed_at: Time.now
@@ -25,7 +25,7 @@ RSpec.describe 'Login', type: :system do
     end
 
     it 'When I click on a user, I am redirected to that user\'s show page.' do
-      first('.btn-outline-secondary').click
+      click_on(@user.name)
       expect(page).to have_current_path user_path(@user)
     end
   end
