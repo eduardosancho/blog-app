@@ -3,12 +3,12 @@ class ApiController < ApplicationController
   before_action :authenticate_user
 
   private
-  
+
   def set_default_format
     request.format = json
   end
 
-  def authenticate_user!(options = {})
+  def authenticate_user!(_options = {})
     head :unauthorized unless signed_in?
   end
 
@@ -19,6 +19,4 @@ class ApiController < ApplicationController
   def signed_in?
     @current_user_id.present?
   end
-  
-
 end
