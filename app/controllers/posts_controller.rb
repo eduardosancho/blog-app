@@ -5,6 +5,10 @@ class PostsController < ApplicationController
     @page_title = 'Posts Index'
     author_id = params[:user_id]
     @author = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(author_id)
+    respond_to do |format|
+      format.html
+      format.json { render json: @author.to_json(include: [:posts]) }
+    end
   end
 
   def show

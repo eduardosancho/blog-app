@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  # API
+  scope :api, defaults: {format: :json } do
+    scope :v1 do
+      devise_for :users, as: 'api', controllers: { sessions: 'api/v1/sessions', registrations: 'api/v1/registrations' }
+
+      resource :user, only: [:show, :update]
+
+      resources :users, only: [:index, :show] do
+        resources :posts, only: [:index, :show] do
+          resources :comments, only: [:index, :show]
+        end
+      end
+    end
+  end
+  # HTML
   devise_for :users
   devise_scope :user do
     authenticated :user do
@@ -10,22 +25,13 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :api do
-    namespace :v1 do
-      resources :users do
-        resources :posts do
-          resources :comments
-        end
-      end
-    end
-  end
-
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :new, :create, :show, :destroy] do
       resources :comments, only: [:new, :create, :destroy]
       resources :likes, only: [:create]
     end
   end
+
 
   root "users#index"
 end
