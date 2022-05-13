@@ -16,7 +16,10 @@ class PostsController < ApplicationController
     @page_title = 'Post Details'
     post_id = params[:id]
     @post = Post.includes(:comments, comments: [:author]).find(post_id)
-    @author = @post.author
+    respond_to do |format|
+      format.html
+      format.json { render json: @post.to_json(include: [:comments]) }
+    end
   end
 
   def new
