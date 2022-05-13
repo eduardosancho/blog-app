@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @owner = User.find(params[:user_id])
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
-    @comment.author_id = current_user.id
+    # @comment.author_id = current_user.id
     @comment.post_id = params[:post_id]
     respond_to do |format|
       format.html do
@@ -28,6 +28,21 @@ class CommentsController < ApplicationController
         else
           flash[:error] = 'Error: Comment could not be saved'
           redirect_to new_user_post_comment_url(@owner, @post)
+        end
+      end
+      format.json do
+        if @comment.save 
+          render json: {
+            messages: 'Comment Created Successfuly',
+            is_success: true,
+            data: {}
+          }, status: :ok
+        else
+          render json: {
+            messages: 'Comment not created',
+            is_success: false,
+            data: {}
+          }, status: :unprocessable_entity
         end
       end
     end
