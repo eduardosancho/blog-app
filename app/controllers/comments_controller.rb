@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+  protect_from_forgery with: :null_session
+  skip_before_action :verify_authenticity_token, only: :create
+  before_action :load_comment_owner_post, only: :create
+
   load_and_authorize_resource
   layout 'posts'
 
@@ -15,11 +19,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @owner = User.find(params[:user_id])
-    @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
-    @comment.author_id = current_user.id
-    @comment.post_id = params[:post_id]
+    @comment.author_id = User.find(3).id
+    @comment.post_id = @post.id
     respond_to do |format|
       format.html do
         if @comment.save
@@ -28,6 +30,12 @@ class CommentsController < ApplicationController
         else
           flash[:error] = 'Error: Comment could not be saved'
           redirect_to new_user_post_comment_url(@owner, @post)
+        end
+      end
+      format.json do
+        unless @comment.save
+          render json: { messages: 'Comment not created', is_success: false, data: {} },
+                 status: :unprocessable_entity
         end
       end
     end
@@ -42,6 +50,11 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def load_comment_owner_post
+    @owner = User.find(params[:user_id])
+    @post = Post.find(params[:post_id])
+  end
 
   def comment_params
     params.require(:comment).permit(:text)

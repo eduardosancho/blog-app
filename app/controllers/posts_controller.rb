@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
+  # respond_to :html
 
   def index
     @page_title = 'Posts Index'
     author_id = params[:user_id]
     @author = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(author_id)
+    respond_to do |format|
+      format.html
+      format.json { render json: @author.to_json(include: [:posts]) }
+    end
   end
 
   def show
@@ -12,7 +17,10 @@ class PostsController < ApplicationController
     @page_title = 'Post Details'
     post_id = params[:id]
     @post = Post.includes(:comments, comments: [:author]).find(post_id)
-    @author = @post.author
+    respond_to do |format|
+      format.html
+      format.json { render json: @post.to_json(include: [:comments]) }
+    end
   end
 
   def new
