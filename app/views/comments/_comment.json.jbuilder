@@ -1,1 +1,1 @@
-json.call(comment, :author, :text, :post)
+json.call(comment, :text, :author_id, :post_id)

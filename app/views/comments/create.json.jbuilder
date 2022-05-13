@@ -1,3 +1,3 @@
-json.user do |json|
-  json.partial! 'comments/comment', user: current_user
+json.comment do |json|
+  json.partial! 'comments/comment', comment: Comment.last
 end

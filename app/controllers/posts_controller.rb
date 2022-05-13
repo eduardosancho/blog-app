@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
+  # respond_to :html
 
   def index
     @page_title = 'Posts Index'
